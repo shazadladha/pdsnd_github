@@ -2,7 +2,7 @@ import time
 import pandas as pd
 import numpy as np
 import json
-
+##Added comment in my code for the purpose of the Github project
 def user_input(message, user_list):
     """
     A function to get user inputs
@@ -18,7 +18,7 @@ def user_input(message, user_list):
             break
         if user_data == 'all':
             break
-    
+
     return user_data
 
 CITY_DATA = { 'chicago': 'chicago.csv',
@@ -58,7 +58,7 @@ def get_filters():
 
     print('-'*40)
     return city, month, day
-    
+
 
 def load_data(city, month, day):
     """
@@ -178,10 +178,10 @@ def user_stats(df):
     # Display counts of user types
     print("Counts of user types:\n")
     user_counts = df['User Type'].value_counts()
-    # iteratively print out the total numbers of user types 
+    # iteratively print out the total numbers of user types
     for index, user_count in enumerate(user_counts):
         print("  {}: {}".format(user_counts.index[index], user_count))
-    
+
     print()
 
     if 'Gender' in df.columns:
@@ -200,12 +200,12 @@ def user_stats_gender(df):
     # Display counts of gender
     print("Counts of gender:\n")
     gender_counts = df['Gender'].value_counts()
-    # iteratively print out the total numbers of genders 
+    # iteratively print out the total numbers of genders
     for index,gender_count   in enumerate(gender_counts):
         print("  {}: {}".format(gender_counts.index[index], gender_count))
-    
+
     print()
-    
+
 
 def user_stats_birth(df):
     """Displays statistics of analysis based on the birth years of bikeshare users."""
@@ -225,7 +225,7 @@ def user_stats_birth(df):
 def table_stats(df, city):
     """Displays statistics on bikeshare users."""
     print('\nCalculating Dataset Stats...\n')
-    
+
     # counts the number of missing values in the entire dataset
     number_of_missing_values = np.count_nonzero(df.isnull())
     print("The number of missing values in the {} dataset : {}".format(city, number_of_missing_values))
@@ -240,13 +240,13 @@ def display_data(df):
 
     # iterate from 0 to the number of rows in steps of 5
     for i in range(0, row_length, 5):
-        
+
         yes = input('\nWould you like to examine the particular user trip data? Type \'yes\' or \'no\'\n> ')
         if yes.lower() != 'yes':
             break
-        
+
         # retrieve and convert data to json format
-        # split each json row data 
+        # split each json row data
         row_data = df.iloc[i: i + 5].to_json(orient='records', lines=True).split('\n')
         for row in row_data:
             # pretty print each user data
